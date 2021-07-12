@@ -1,3 +1,9 @@
+  
+import '@pnotify/core/dist/BrightTheme.css';
+import '@pnotify/core/dist/PNotify.css';
+import { error } from '@pnotify/core';
+
+
 const BASE_URL = 'https://pixabay.com/api/';
 const KEY = '22395218-1fa4e36600279d8c4f99c77de';
 
@@ -13,9 +19,13 @@ export default class ImagesApiServis {
         .then(response => {
             return response.json()
         })
-        .then(data => {
-            return data.hits            
-        })
+        .then(data => { 
+            if (data.total === 0) {
+                error({text: 'Ups, images is not be found =('})
+            } else {
+                return  data.hits;
+            };
+        });
     }
 
     get query() {
