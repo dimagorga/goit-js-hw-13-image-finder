@@ -1,11 +1,9 @@
-  
-import '@pnotify/core/dist/BrightTheme.css';
-import '@pnotify/core/dist/PNotify.css';
 import { error } from '@pnotify/core';
 
 
 const BASE_URL = 'https://pixabay.com/api/';
 const KEY = '22395218-1fa4e36600279d8c4f99c77de';
+const loadMoreBtnRef = document.querySelector('[data-load]')
 
 export default class ImagesApiServis {
     constructor() {
@@ -21,7 +19,8 @@ export default class ImagesApiServis {
         })
         .then(data => { 
             if (data.total === 0) {
-                error({text: 'Ups, images is not be found =('})
+                loadMoreBtnRef.classList.add('is-hidden') 
+                error({text: 'Ups, images is not be found =('})                
             } else {
                 return  data.hits;
             };

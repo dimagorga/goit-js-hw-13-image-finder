@@ -26,7 +26,7 @@ function onSearch(e){
         clearGallery();  
         imagesApiService.resetPage();       
         createImagesList()  
-        loadMoreBtnRef.classList.remove('is-hidden')
+        loadMoreBtnRef.classList.remove('is-hidden') 
     }
     
 }
@@ -38,6 +38,7 @@ function createImagesList(){
             renderImages(hits);             
         }
     );  
+    
 }
 
 function onLoadMore(){
