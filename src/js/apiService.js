@@ -20,7 +20,7 @@ export default class ImagesApiServis {
         .then(data => { 
             if (data.total === 0) {
                 loadMoreBtnRef.classList.add('is-hidden') 
-                error({text: 'Ups, images is not be found =('})                
+                error({text: 'Ups, images is not found =('})                
             } else {
                 return  data.hits;
             };
